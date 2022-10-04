@@ -1,0 +1,10 @@
+Esta linha contém o valor: 29
+Esta linha contém o valor: 46
+Esta linha contém o valor: 55
+Esta linha contém o valor: 82
+Esta linha contém o valor: 83
+Esta linha contém o valor: 32
+Esta linha contém o valor: 42
+Esta linha contém o valor: 58
+Esta linha contém o valor: 19
+Esta linha contém o valor: 31
