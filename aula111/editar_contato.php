@@ -12,6 +12,9 @@
   $bd = new EasyPDO\EasyPDO(MYSQL_OPTIONS);
 
   $id_contato = aes_desencriptar($id_contato);
+  if($id_contato == -1 || $id_contato == false){
+    die('Acesso inválido!');
+  }
 
   $parametros = [
     ':id_contato' => $id_contato
@@ -33,7 +36,7 @@
 
 <body>
   <form action="editar_contato_submit.php" method="post">
-    <input type="hidden" name="id_contato" value="<?= $id_contato ?>">
+    <input type="hidden" name="id_contato" value="<?= aes_encriptar($id_contato) ?>">
     <div>
       <label for="nome">Nome:</label>
       <input type="text" name="nome" id="nome" maxlength="50" value="<?= $contato['nome']; ?>">
