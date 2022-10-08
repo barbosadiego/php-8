@@ -40,8 +40,8 @@
         <tr>
           <td><?= $contato['nome'] ?></td>
           <td><?= $contato['telefone'] ?></td>
-          <td><a href="editar_contato.php?id=<?= $contato['id_contato'] ?>">Editar</a></td>
-          <td><a href="excluir_contato.php?id=<?= $contato['id_contato'] ?>">Excluir</a></td>
+          <td><a href="editar_contato.php?id=<?= aes_encriptar($contato['id_contato']) ?>">Editar</a></td>
+          <td><a href="excluir_contato.php?id=<?= aes_encriptar($contato['id_contato']) ?>">Excluir</a></td>
         </tr>
       <?php endforeach;?>
     </tbody>

@@ -1,7 +1,7 @@
 <?php
 
 // verificar se foi feito um post
-if($_SERVER["REQUEST_METHOD"] != 'POST'){
+if ($_SERVER["REQUEST_METHOD"] != 'POST') {
   die('Acesso negado');
 }
 
@@ -25,4 +25,7 @@ echo 'Contato salvo com sucesso!';
   <a href="index.php">Voltar</a>
   <span>|</span>
   <a href="adicionar_contatos.php">Novo Contato</a>
+  <div>
+    <a href="ver_contatos.php">Ver contatos</a>
+  </div>
 </div>
