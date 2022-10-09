@@ -17,7 +17,8 @@
 </head>
 <body>
 
-  <h3>CLUBE</h3>
+  <h3 class="text-center">CLUBE</h3>
+  <hr>
 
   <?php 
     // requerer scripts estruturais

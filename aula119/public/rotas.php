@@ -1,24 +1,39 @@
-<?php 
+<?php
 
-  defined('CONTROLE') or die('Acesso negado.');
+use EasyPDO\EasyPDO;
 
-  $rota = null;
+defined('CONTROLE') or die('Acesso negado.');
 
-  if(!verifica_sessao()){
-    $rota = 'login';
-  } else {
-    $rota = 'logado';
-  }
+$rota = null;
 
-  //apresentar os layouts
-  switch ($rota) {
-    case 'login':
-      require_once('../views/login_frm.php');
-      break;
-    case 'label':
-      # code...
-      break;
-    default:
-      # code...
-      break;
-  }
+if (!verifica_sessao() && $_SERVER["REQUEST_METHOD"] != 'POST') {
+  $rota = 'login';
+} elseif (!verifica_sessao() && $_SERVER["REQUEST_METHOD"] == 'POST') {
+  $rota = 'login_submit';
+}
+
+//apresentar os layouts
+switch ($rota) {
+  case 'login':
+
+    //apresentação do formulário de login
+    require_once('../views/login_frm.php');
+    break;
+
+  case 'login_submit':
+
+    //tentativa de login
+    $bd = new EasyPDO();
+    $parametros = [
+      ':usuario' => $_POST["usuario"]
+    ];
+    $resultado = $bd->select("SELECT id_usuario, usuario FROM usuarios WHERE usuario = :usuario", $parametros);
+    print_r($resultado);
+    //concectar à base de dados
+    break;
+
+  default:
+
+    # code...
+    break;
+}
